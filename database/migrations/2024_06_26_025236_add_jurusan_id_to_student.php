@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->string('norek', 5);
-            $table->string('name', 25);
-            $table->date('expcard');
-            //$table->integer('umur');
-            //$table->boolean('is_active');
-            //$table->text('profile');
-            $table->timestamps();
+        Schema::table('students', function (Blueprint $table) {
+            $table->integer('jurusan_id')->default(1);
+            //
         });
     }
 
@@ -32,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
+        Schema::table('students', function (Blueprint $table) {
+            //
+        });
     }
 };
